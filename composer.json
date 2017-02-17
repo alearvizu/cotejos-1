@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "ortegon000/cotejos",
+    "description": "Sistema para cotizar cotejos",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",

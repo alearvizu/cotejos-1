@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'hola';
+});
+
+Route::get('lawyers', function () {
+	
+	$lawyers = App\Lawyer::all();
+	
+	return view('lawyers', compact('lawyers'));
 });
