@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return 'hola';
+	return 'hola';
 });
 
 Route::get('lawyers', function () {
@@ -20,4 +20,9 @@ Route::get('lawyers', function () {
 	$lawyers = App\Lawyer::all();
 	
 	return view('lawyers', compact('lawyers'));
+});
+
+Route::get('users', function () {
+	$users  = App\User::all();
+	return view('users', compact('users'));
 });
