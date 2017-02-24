@@ -12,17 +12,25 @@
 */
 
 Route::get('/', function () {
-	return 'hola';
+	return view('welcome');
 });
 
-Route::get('lawyers', function () {
+Route::group(['middleware' => 'auth'], function() {
 	
-	$lawyers = App\Lawyer::all();
-	
-	return view('lawyers', compact('lawyers'));
+	Route::get('/dashboard', function () {
+		return view('dashboard');
+	})->name('dashboard');
+
+	Route::get('users', function () {
+		$users = App\User::all();
+		return view('users.index', compact('users'));
+	})->name('users.index');
+
+	Route::get('lawyers', function () {
+		$lawyers = App\Lawyer::all();
+		return view('lawyers.index', compact('lawyers'));
+	})->name('lawyers.index');
+
 });
 
-Route::get('users', function () {
-	$users  = App\User::all();
-	return view('users', compact('users'));
-});
+Auth::routes();
